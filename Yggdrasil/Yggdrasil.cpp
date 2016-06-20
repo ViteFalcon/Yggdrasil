@@ -3,6 +3,7 @@
 
 #include "stdafx.h"
 #include "core/YggConfigs.h"
+#include "core/YggCommandOptions.h"
 
 #include <iostream>
 
@@ -16,8 +17,9 @@ namespace ygg {
     class Yggdrasill
     {
     public:
-        Yggdrasill(std::shared_ptr<Configs> configs)
+        Yggdrasill(std::shared_ptr<Configs> configs, std::shared_ptr<CommandOptions> options)
             : mConfigs(configs)
+            , mOptions(options)
         {
         }
 
@@ -39,13 +41,19 @@ namespace ygg {
             _getch();
         }
         std::shared_ptr<ygg::Configs> mConfigs;
+        std::shared_ptr<ygg::CommandOptions> mOptions;
     };
 }
 
-int main()
+int main(int argc, char* argv[], char* envp[])
 {
     using namespace ygg;
-    auto injector = di::make_injector(di::bind<std::string>().named(Configs::File).to("yggdrasil.ini"));
+    auto injector = di::make_injector(
+        di::bind<std::string>().named(Configs::File).to("yggdrasil.ini"),
+        di::bind<>().named(CommandOptions::ARGC).to(argc),
+        di::bind<char*[]>().named(CommandOptions::ARGV).to(argv),
+        di::bind<char*[]>().named(CommandOptions::ENVP).to(envp)
+    );
     auto yggdrasill = injector.create<Yggdrasill>();
     yggdrasill.run();
     return 0;

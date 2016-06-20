@@ -33,6 +33,12 @@
     <ClInclude Include="core\YggConfigs.h">
       <Filter>core</Filter>
     </ClInclude>
+    <ClInclude Include="core\YggCommandOptions.h">
+      <Filter>core</Filter>
+    </ClInclude>
+    <ClInclude Include="core\YggDIAnnotations.h">
+      <Filter>core</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -42,6 +48,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="core\YggConfigs.cpp">
+      <Filter>core</Filter>
+    </ClCompile>
+    <ClCompile Include="core\YggCommandOptions.cpp">
       <Filter>core</Filter>
     </ClCompile>
   </ItemGroup>
