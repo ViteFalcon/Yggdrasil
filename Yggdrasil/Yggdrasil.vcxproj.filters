@@ -31,7 +31,7 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="core\YggConfigs.h">
-      <Filter>Header Files</Filter>
+      <Filter>core</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -39,10 +39,10 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Yggdrasil.cpp">
-      <Filter>core</Filter>
+      <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="core\YggConfigs.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>core</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
